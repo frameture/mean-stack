@@ -2,7 +2,7 @@ import * as express from 'express';
 
 export default class App {
 
-  private let app = express();
+  private app = express();
 
   start(): void {
 
