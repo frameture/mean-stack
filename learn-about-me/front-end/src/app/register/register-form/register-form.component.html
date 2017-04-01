@@ -1,3 +1,17 @@
-<p>
-  register-form works!
-</p>
+<form [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input class="form-control" type="text/" name="username" value="" id="username" formControlName="username" required>
+    <p>{{error}}</p>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" value="" id="password" formControlName="password" required>
+  </div>
+  <button class="btn btn-danger" type="button" (click)="onReset()">Reset</button>
+  <button class="btn btn-info" type="submit" (click)="onSubmit()" [disabled]="!registerForm.valid">Register</button>
+</form>
+
+<div *ngIf="processing">
+  <h1>Processing...</h1>
+</div>
