@@ -13,10 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private ls: AuthService) { }
 
   ngOnInit(): void {
-    this.checkLogin();
   }
 
-  private checkLogin() {
-    this.ls.login();
-  }
 }
