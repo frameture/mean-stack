@@ -1,3 +1,5 @@
-<p>
-  user-detail works!
-</p>
+<div class="user" *ngIf="user">
+  <h3>Username: {{user.username}}</h3>
+  <h3>Joined at: {{user.createdAt | date:short}}</h3>
+</div>
+<button class="btn btn-default" routerLink="/users">Back</button>
