@@ -7,7 +7,7 @@ import 'rxjs/add/operator/switchMap';
 @Injectable()
 export class BackEndService {
 
-  private readonly URL = 'http://localhost:3334';
+  private readonly URL = 'http://localhost:3001';
 
   constructor(private http: Http) { }
 
@@ -19,12 +19,22 @@ export class BackEndService {
     return this.http.get(this.URL + '/users');
   }
 
-  register(user: { username: string, password: string }): Observable<any> {
-    let data = JSON.stringify(user);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+  isAuthenticated(): Observable<any> {
+    return this.http.get(this.URL + '/isAuth');
+  }
 
-    return this.http.post(this.URL + '/register', { data }, options);
+  login(data): Observable<any> {
+    data = JSON.stringify(data);
+    return this.http.post(this.URL + '/login', { data });
+  }
+
+  logout(): Observable<any> {
+    return this.http.get(this.URL + '/logout');
+  }
+
+  register(user: { username: string, password: string }): Observable<any> {
+    const data = JSON.stringify(user);
+    return this.http.post(this.URL + '/register', { data });
   }
 
 }

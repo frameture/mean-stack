@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { BackEndService } from '../../shared/back-end.service';
+import { BackEndService } from 'app/back-end.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
