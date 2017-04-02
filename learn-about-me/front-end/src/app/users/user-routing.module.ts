@@ -11,7 +11,7 @@ const routes = [
       { path: '', component: UserListComponent }
     ]
   }
-]
+];
 
 @NgModule({
   imports: [ RouterModule.forChild(routes) ],

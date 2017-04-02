@@ -1,5 +1,10 @@
 <div class="user" *ngIf="user">
   <h3>Username: {{user.username}}</h3>
   <h3>Joined at: {{user.createdAt | date:short}}</h3>
+  <h3>Display Name: {{user.displayName}}</h3>
+  <h3>Biography: {{user.bio}}</h3>
 </div>
 <button class="btn btn-default" routerLink="/users">Back</button>
+<button class="btn btn-info" (click)="onEdit(user.username)">Edit</button>
+
+<app-user-edit [user]="user" *ngIf="show"></app-user-edit>
