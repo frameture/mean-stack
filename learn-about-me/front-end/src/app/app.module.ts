@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersModule } from './users/users.module';
 import { RegisterModule } from './register/register.module';
 import { SharedModule } from './shared/shared.module';
+import { BackEndService } from './back-end.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,10 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     NotFoundComponent
+  ],
+  providers: [
+    UserService,
+    BackEndService,
   ],
   bootstrap: [ AppComponent ]
 })
