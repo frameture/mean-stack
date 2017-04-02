@@ -37,4 +37,9 @@ export class BackEndService {
     return this.http.post(this.URL + '/register', { data });
   }
 
+  update(data): Observable<any> {
+    data = JSON.stringify(data);
+    return this.http.put(this.URL + '/update', { data });
+  }
+
 }

@@ -54,7 +54,7 @@ export class RegisterFormComponent implements OnInit {
     return {
       username: this.registerForm.get('username').value,
       password: this.registerForm.get('password').value
-    }
+    };
   }
 
   private handleError(error: any): void {
