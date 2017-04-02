@@ -28,6 +28,7 @@ export default class Routes {
 
   private setRoutes(): void {
     this.routeLogin();
+    this.routeUpdate();
     this.routeUser();
     this.routeUsers();
     this.routeRegister();
@@ -93,6 +94,29 @@ export default class Routes {
             res.json({ success: true, user: foundUser, auth_token });
           }
         });
+      });
+    });
+  }
+
+  private routeUpdate(): void {
+    this.router.put('/update', (req, res) => {
+      const data = JSON.parse(req.body.data);
+      const username = data.username;
+      const bio = data.bio;
+      const displayName = data.displayName;
+
+      console.log(bio, displayName);
+      this.user.findOne({ username }, (err, user: any) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json(err);
+        }
+        if (!user) { return res.json({ success: false, message: 'No such user' }); }
+
+        user.bio = bio;
+        user.displayName = displayName;
+        user.save();
+        res.json(user);
       });
     });
   }

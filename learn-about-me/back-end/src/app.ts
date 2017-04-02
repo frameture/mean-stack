@@ -24,9 +24,6 @@ export default class App {
     this.app.use(logger('dev'));
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
-
-    // this.app.use(passport.initialize());
-    // this.app.use(passport.session());
     this.app.use(this.router);
 
     mongoose.connect(this.DB);
